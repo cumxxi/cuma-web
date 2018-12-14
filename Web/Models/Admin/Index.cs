@@ -5,5 +5,9 @@ namespace Web.Models.Admin
 {
     public class Index : PageModel
     {
+        public Index()
+        {
+
+        }
     }
 }

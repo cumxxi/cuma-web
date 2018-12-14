@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Web
@@ -15,20 +17,33 @@ namespace Web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services
+                .AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddRazorPagesOptions(options =>
+                {
+                    options.AllowAreas = true;
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder application, IHostingEnvironment env)
         {
+            var provider = new FileExtensionContentTypeProvider();
+            provider.Mappings[".less"] = "plain/text";
+
+            application
+                .UseStaticFiles(new StaticFileOptions
+                {
+                    ContentTypeProvider = provider
+                })
+                .UseMvc();
 
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                application.UseDeveloperExceptionPage();
+                application.UseDirectoryBrowser();
             }
-
-            app.UseStaticFiles();
-            app.UseMvc();
         }
 
     }

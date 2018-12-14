@@ -1,49 +1,8 @@
 ﻿@page
-@using Web.Models.Home
-@using Web.Models.Components
-@model Index
+@model Home.Index
 
 @{
-    ViewData["Title"] = "Index";    
+    ViewData["Title"] = "Index"; 
 }
 
-<div>
-    <h1>Breads</h1>
-    @await Html.PartialAsync("~/Views/Components/Breads.cshtml", Model.Breads)
-</div>
-<div>
-    <h1>Category</h1>
-    @await Html.PartialAsync("~/Views/Components/Category.cshtml", Model.Category)
-</div>
-<div>
-    <h1>Footer</h1>
-    @await Html.PartialAsync("~/Views/Components/Footer.cshtml", Model.Footer)
-</div>
-<div>
-    <h1>Header</h1>
-    @await Html.PartialAsync("~/Views/Components/Header.cshtml", Model.Header)    
-</div>
-<div>
-    <h1>Navbar</h1>
-    @await Html.PartialAsync("~/Views/Components/Navbar.cshtml", Model.Navbar)    
-</div>
-<div>
-    <h1>Pagination</h1>
-    @await Html.PartialAsync("~/Views/Components/Pagination.cshtml", Model.Pagination)    
-</div>
-<div>
-    <h1>Product</h1>
-    @await Html.PartialAsync("~/Views/Components/Product.cshtml", Model.Product)    
-</div>
-<div>
-    <h1>Slider</h1>
-    @await Html.PartialAsync("~/Views/Components/Slider.cshtml", Model.Slider)    
-</div>
-<div>
-    <h1>Tab</h1>
-    @await Html.PartialAsync("~/Views/Components/Tab.cshtml", Model.Tab)    
-</div>
-
-
-
-
+@await Html.PartialAsync("_Slider")
