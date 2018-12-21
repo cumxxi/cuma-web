@@ -30,20 +30,23 @@ namespace Web
         public void Configure(IApplicationBuilder application, IHostingEnvironment env)
         {
             var provider = new FileExtensionContentTypeProvider();
-            provider.Mappings[".less"] = "plain/text";
 
             application
-                .UseStaticFiles(new StaticFileOptions
-                {
-                    ContentTypeProvider = provider
-                })
                 .UseMvc();
 
             if (env.IsDevelopment())
             {
-                application.UseDeveloperExceptionPage();
-                application.UseDirectoryBrowser();
+                provider.Mappings[".less"] = "plain/text";
+                application
+                    .UseDeveloperExceptionPage()
+                    .UseDirectoryBrowser();
             }
+
+            application                   
+                .UseStaticFiles(new StaticFileOptions
+                {
+                    ContentTypeProvider = provider
+                });
         }
 
     }

@@ -1,16 +1,70 @@
 <section class="page-header">
-    <div class="page-header-topbar">
-        <div class="row justify-content-md-center">
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="col-md-4">Sol</div>
-                    <div class="col-md-4">Orta</div>
-                    <div class="col-md-4">Sağ</div>
+    <div class="topbar">
+        <section>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 d-none d-lg-block">
+                        <div class="links">
+                            <ul>
+                                <li>
+                                    <a href="/">Anasayfa</a>
+                                </li>
+                                <li>
+                                    <a href="/hakkimizda">Hakkımızda</a>
+                                </li>
+                                <li>
+                                    <a href="/iletisim">İletişim</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <p class="notification">500,00 TL ve üzeri alışverişlerde
+                            <b>KARGO BEDAVA</b>
+                        </p>
+                    </div>
+                    <div class="col-lg-3 d-none d-lg-block">
+                        <p class="contact">
+                            <i class="fa fa-phone-volume"></i> 0 (537) 914 91 92</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 d-none d-lg-block">
+                        <div class="logo">
+                            <img class="img-fluid" src="~/img/logo.png" />
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-5">
+                            <div class="search input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Ne aramıştınız?" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button" id="button-addon2">ARA</button>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-lg-3 d-none d-lg-block">
+                        <div class="account">
+                                <button class="btn btn-primary">
+                                    <i class="fa fa-user"></i>
+                                    Hesabım
+                                </button>
+                                <button class="btn btn-primary">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    Sepetim
+                                </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    <div class="page-header-navbar">
-        @await Html.PartialAsync("_Navbar")
+    <div class="navbar">
+        <div class="container">
+            @await Html.PartialAsync("_Navbar")
+        </div>
     </div>
 </section>
